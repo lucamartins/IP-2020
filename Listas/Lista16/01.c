@@ -15,9 +15,9 @@ int main(){
     fclose(fp);
 
     fp = fopen("arq.txt", "r");
-    while(1){
+    while(!feof(fp)){
         c = fgetc(fp);
-        if(feof(fp)) break;
+        if(feof(fp)) break; // Parar no penultimo caractere. Esse vai ser o ultimo de valor, os outros em diante serao estruturais
         printf("%c", c);
     }
     
