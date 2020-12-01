@@ -16,6 +16,7 @@ int main(){
 
     fseek(fp, -1, SEEK_END);
     char c = fgetc(fp);
+    c = tolower(c);
 
     fseek(fp, 0, SEEK_SET);
 
