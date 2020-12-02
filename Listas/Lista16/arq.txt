@@ -1,0 +1,3 @@
+Sao Paulo, 11300000
+Goiania, 1250000
+Rio de Janeiro, 3400000
