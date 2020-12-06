@@ -31,7 +31,7 @@ int main(){
         alunos[i].nota = strtod(piece, NULL);
 
         // Escrita dos dados num arquivo binario
-        fprintf(fp, "%-40s %.2lf", alunos[i].nome, alunos[i].nota);
+        fprintf(fp, "%-40s; %.2lf", alunos[i].nome, alunos[i].nota);
         if(i != N-1) fprintf(fp, "\n");
     }
 
@@ -39,11 +39,28 @@ int main(){
     fclose(fp);
 
     // Lendo o arquivo binario. 'rb' == Read binary  // 'wb' == Write binary
+    char aux_nome[60], nome[60];
+    double aux_nota=0, maior_nota=0;
+
     fp = fopen("saida.bin", "rb");
     for(i=0; i<N; i++){
         fgets(buffer, sizeof(buffer), fp);
-        printf("%s", buffer);
+        buffer[strlen(buffer)-1] = 0;
+
+        piece = strtok(buffer, ";");
+        strcpy(aux_nome, piece);
+
+        piece = strtok(NULL, ";");
+        aux_nota = strtod(piece, NULL);
+
+
+        if(aux_nota > maior_nota){
+            maior_nota = aux_nota;
+            strcpy(nome, aux_nome);
+        }
     }
+
+    printf("Nome do aluno com a maior nota: %s\n", nome);
 
     fclose(fp);
 
