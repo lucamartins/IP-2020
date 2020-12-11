@@ -140,7 +140,7 @@ int main(){
     int func, qnt_contatos=0;
     int *pQnt = &qnt_contatos;
 
-    Contato* contatos = malloc(0);
+    Contato* contatos = malloc(sizeof(Contato));
     FILE *fp;
 
     while(1){
