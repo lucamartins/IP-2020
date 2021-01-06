@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
-int aliteracoes(char leitura[]){
+void aliteracoes(char leitura[]){
       int cnt_final=0, cnt_aux=1;
       char ultimo_char = tolower(leitura[0]);
 
